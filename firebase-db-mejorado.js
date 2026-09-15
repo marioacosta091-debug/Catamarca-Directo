@@ -2,14 +2,7 @@
 // CONFIGURACIÓN FIREBASE - DIRECTORIO CATAMARCA
 // ========================================
 
-const // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
 const firebaseConfig = {
-  };const firebaseConfig = {
   apiKey: "AIzaSyC0K6VseoeZtU4WBGXM3d70BhcmgUC2WLk",
   authDomain: "catamarca-directas.firebaseapp.com",
   databaseURL: "https://catamarca-directas-default-rtdb.firebaseio.com",
@@ -17,11 +10,6 @@ const firebaseConfig = {
   storageBucket: "catamarca-directas.firebasestorage.app",
   messagingSenderId: "473572302526",
   appId: "1:473572302526:web:62d65c29814889e029c8ef"
-};
-
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
 };
 
 // Inicializar Firebase
@@ -54,7 +42,7 @@ function saveItem(type, data) {
 }
 
 /**
- * Obtiene todos los items de un tipo (CORREGIDO: usa once() en lugar de on())
+ * Obtiene todos los items de un tipo
  * @param {string} type - Tipo de item
  * @returns {Promise<Array>} Array de items con sus IDs
  */
@@ -188,10 +176,6 @@ function getReviews(type, itemId) {
         });
 }
 
-// ========================================
-// FUNCIONES ADICIONALES ÚTILES
-// ========================================
-
 /**
  * Busca items por nombre (case-insensitive)
  * @param {string} type - Tipo de item
@@ -242,12 +226,12 @@ function getAverageRating(type, itemId) {
     return getReviews(type, itemId).then(reviews => {
         if (reviews.length === 0) return 0;
         const sum = reviews.reduce((acc, review) => acc + (review.rating || 0), 0);
-        return Math.round((sum / reviews.length) * 10) / 10; // Redondea a 1 decimal
+        return Math.round((sum / reviews.length) * 10) / 10;
     });
 }
 
 /**
- * Obtiene estadísticas de un item (cantidad de reseñas, rating promedio)
+ * Obtiene estadísticas de un item
  * @param {string} type - Tipo de item
  * @param {string} itemId - ID del item
  * @returns {Promise<object>} Objeto con stats
@@ -264,13 +248,8 @@ function getItemStats(type, itemId) {
     }));
 }
 
-// ========================================
-// FUNCIONES DE UTILIDAD
-// ========================================
-
 /**
- * Limpia todos los listeners de Firebase (previene memory leaks)
- * Usa esto cuando desmontes componentes o salgas de vistas
+ * Limpia todos los listeners de Firebase
  */
 function cleanupFirebaseListeners() {
     db.ref().off();
@@ -286,24 +265,3 @@ function checkConnection() {
         .then(snapshot => snapshot.val())
         .catch(() => false);
 }
-
-// ========================================
-// EXPORTAR FUNCIONES (si usas módulos)
-// ========================================
-/*
-export {
-    saveItem,
-    getItems,
-    getItem,
-    updateItem,
-    deleteItem,
-    addReview,
-    getReviews,
-    searchItems,
-    getItemsByCategory,
-    getAverageRating,
-    getItemStats,
-    cleanupFirebaseListeners,
-    checkConnection
-};
-*/
