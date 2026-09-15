@@ -9,6 +9,7 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
+  };const firebaseConfig = {
   apiKey: "AIzaSyC0K6VseoeZtU4WBGXM3d70BhcmgUC2WLk",
   authDomain: "catamarca-directas.firebaseapp.com",
   databaseURL: "https://catamarca-directas-default-rtdb.firebaseio.com",
@@ -17,6 +18,7 @@ const firebaseConfig = {
   messagingSenderId: "473572302526",
   appId: "1:473572302526:web:62d65c29814889e029c8ef"
 };
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
