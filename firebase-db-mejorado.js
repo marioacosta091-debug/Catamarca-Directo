@@ -2,14 +2,24 @@
 // CONFIGURACIÓN FIREBASE - DIRECTORIO CATAMARCA
 // ========================================
 
+const // Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyDemoKeyExample123456789",
-    authDomain: "catamarca-directo.firebaseapp.com",
-    databaseURL: "https://catamarca-directo-default-rtdb.firebaseio.com",
-    projectId: "catamarca-directo",
-    storageBucket: "catamarca-directo.appspot.com",
-    messagingSenderId: "123456789",
-    appId: "1:123456789:web:abcdef123456"
+  apiKey: "AIzaSyC0K6VseoeZtU4WBGXM3d70BhcmgUC2WLk",
+  authDomain: "catamarca-directas.firebaseapp.com",
+  databaseURL: "https://catamarca-directas-default-rtdb.firebaseio.com",
+  projectId: "catamarca-directas",
+  storageBucket: "catamarca-directas.firebasestorage.app",
+  messagingSenderId: "473572302526",
+  appId: "1:473572302526:web:62d65c29814889e029c8ef"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
 };
 
 // Inicializar Firebase
