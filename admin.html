@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Admin - Catamarca Directo</title>
+    <link rel="stylesheet" href="admin-style.css">
+</head>
+<body>
+    <div class="admin-container">
+        <header class="admin-header">
+            <h1>🔧 Panel de Administración</h1>
+            <a href="index.html" class="back-link">← Volver</a>
+        </header>
+
+        <main class="admin-main">
+            <div class="admin-tabs">
+                <button class="admin-tab-btn active" data-tab="add">Agregar Nuevo</button>
+                <button class="admin-tab-btn" data-tab="manage">Gestionar</button>
+            </div>
+
+            <!-- TAB: AGREGAR -->
+            <div id="addTab" class="admin-tab-content active">
+                <div class="form-section">
+                    <h2>Tipo</h2>
+                    <div class="type-selector">
+                        <button class="type-btn active" data-type="professional">👤 Profesional</button>
+                        <button class="type-btn" data-type="business">🏢 Negocio</button>
+                    </div>
+                </div>
+
+                <form id="addForm" class="admin-form">
+                    <!-- Campos comunes -->
+                    <div class="form-group">
+                        <label>Nombre *</label>
+                        <input type="text" id="name" required placeholder="Ej: Juan Carlos López">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Teléfono *</label>
+                        <input type="tel" id="phone" required placeholder="(383) 555-0101">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Dirección/Zona *</label>
+                        <input type="text" id="address" required placeholder="Ej: Zona Norte, San Fernando">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Categoría *</label>
+                        <select id="category" required>
+                            <option value="">Seleccionar categoría</option>
+                            <option value="Electricidad">Electricidad</option>
+                            <option value="Plomería">Plomería</option>
+                            <option value="Pintura">Pintura</option>
+                            <option value="Peluquería">Peluquería</option>
+                            <option value="Construcción">Construcción</option>
+                            <option value="Diseño">Diseño</option>
+                            <option value="Restaurantes">Restaurantes</option>
+                            <option value="Farmacias">Farmacias</option>
+                            <option value="Autopartes">Autopartes</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Especialidades/Servicios (separar por coma) *</label>
+                        <textarea id="specialties" required placeholder="Ej: Instalaciones, Reparaciones urgentes, Mantenimiento"></textarea>
+                    </div>
+
+                    <!-- Campos específicos para Profesional -->
+                    <div id="professionalFields" class="professional-section">
+                        <hr>
+                        <h3>Información del Profesional</h3>
+                        
+                        <div class="form-group">
+                            <label>Oficio/Profesión *</label>
+                            <input type="text" id="oficio" placeholder="Ej: Electricista">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Disponibilidad *</label>
+                            <input type="text" id="availability" placeholder="Ej: Lunes a Sábado, Lunes a Viernes">
+                        </div>
+
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="emergency24">
+                                ✓ Disponible 24 horas
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="emergency">
+                                ✓ Servicio de emergencia
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Campos específicos para Negocio -->
+                    <div id="businessFields" class="business-section" style="display: none;">
+                        <hr>
+                        <h3>Información del Negocio</h3>
+                        
+                        <div class="form-group">
+                            <label>Horarios *</label>
+                            <input type="text" id="hours" placeholder="Ej: 11:00 - 23:00">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Agregar</button>
+                </form>
+            </div>
+
+            <!-- TAB: GESTIONAR -->
+            <div id="manageTab" class="admin-tab-content">
+                <div class="manage-section">
+                    <h2>Profesionales</h2>
+                    <div id="professionalsList" class="items-list">
+                        <p>Cargando...</p>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="manage-section">
+                    <h2>Negocios</h2>
+                    <div id="businessesList" class="items-list">
+                        <p>Cargando...</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

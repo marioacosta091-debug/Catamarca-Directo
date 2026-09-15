@@ -1,0 +1,19 @@
+{
+  "name": "catamarca-directo",
+  "version": "1.0.0",
+  "description": "Directorio de negocios y profesionales de Catamarca",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve",
+    "build": "echo 'Build complete'"
+  },
+  "keywords": [
+    "catamarca",
+    "directorio",
+    "profesionales",
+    "negocios"
+  ],
+  "author": "Mario Acosta",
+  "license": "MIT",
+  "devDependencies": {}
+}
